@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COHO Circles - Private Peer Community for Property Professionals</title>
+  <meta name="description" content="COHO Circles is a private peer community for property professionals. Small WhatsApp groups, real conversations, no noise. Apply to join today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://coho.life/wp-content/uploads/2023/02/cropped-coho-favicon-32x32.png" sizes="32x32">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --brand-pink: #cb0a73;
+      --brand-pink-hover: #AE0862;
+      --text-primary: #2d2d2d;
+      --text-secondary: #5f5f5f;
+      --bg-white: #ffffff;
+      --bg-light: #f9f9fb;
+      --bg-soft: #f4f4f6;
+      --border-light: #ededed;
+      --font-stack: 'Mulish', 'Trebuchet MS', Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    a {
+      color: var(--brand-pink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container--wide {
+      max-width: 1372px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    /* ─── Header ─── */
+    .site-header {
+      padding: 20px 24px;
+      background: var(--bg-white);
+      border-bottom: 1px solid #f3f3f3;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-header .container--wide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header__logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .site-header__nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--brand-pink);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 100px 24px 80px;
+      text-align: center;
+      background: var(--bg-white);
+    }
+
+    .hero__badge {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-pink);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin-bottom: 20px;
+    }
+
+    .hero__sub {
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.5;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--brand-pink);
+      color: #fff;
+      font-family: var(--font-stack);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+      padding: 20px 40px;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--brand-pink-hover);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--brand-pink);
+      border: 2px solid var(--brand-pink);
+      font-size: 16px;
+      padding: 14px 28px;
+    }
+
+    .btn--outline:hover {
+      background: var(--brand-pink);
+      color: #fff;
+    }
+
+    .hero__note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ─── Sections ─── */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section--alt {
+      background: var(--bg-soft);
+    }
+
+    .section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .section p {
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    /* ─── What It Is ─── */
+    .what-it-is__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .what-it-is__col h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .what-it-is__col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .what-it-is__col ul li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
+    .what-it-is__col ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .col--for ul li::before {
+      background: var(--brand-pink);
+    }
+
+    .col--not ul li::before {
+      background: var(--border-light);
+    }
+
+    .col--not ul li {
+      color: var(--text-secondary);
+    }
+
+    /* ─── How It Works ─── */
+    .steps {
+      margin-top: 40px;
+      counter-reset: step;
+    }
+
+    .step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-bottom: 36px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step__number {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand-pink);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step__content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step__content p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+    }
+
+    /* ─── Rules ─── */
+    .rules p {
+      color: var(--text-primary);
+    }
+
+    .rules__highlight {
+      background: var(--bg-white);
+      border-left: 4px solid var(--brand-pink);
+      padding: 24px 28px;
+      border-radius: 0 10px 10px 0;
+      margin: 28px 0;
+    }
+
+    .rules__highlight h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .rules__highlight p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+    }
+
+    /* ─── Application Form ─── */
+    .apply {
+      text-align: center;
+    }
+
+    .apply p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .apply h2 {
+      margin-bottom: 12px;
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-wrapper iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 560px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .form-fallback {
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .form-fallback a {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      padding: 60px 0 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+    }
+
+    .footer__col-brand {
+      grid-column: 1;
+    }
+
+    .footer__logo {
+      max-width: 180px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .footer__tagline {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .footer__social a {
+      color: var(--text-primary);
+      font-weight: 400;
+      font-size: 20px;
+      transition: color 0.2s;
+    }
+
+    .footer__social a:hover {
+      color: rgba(0,0,0,0.6);
+      text-decoration: none;
+    }
+
+    .footer__social svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .footer__cookie {
+      font-size: 14px;
+      color: #8a8a8a;
+      line-height: 1.5;
+    }
+
+    .footer__cookie a {
+      color: #8a8a8a;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .footer__nav-heading {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--brand-pink);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer__nav {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+
+    .footer__nav li {
+      margin-bottom: 6px;
+    }
+
+    .footer__nav a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .footer__nav a:hover {
+      color: var(--brand-pink);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid var(--border-light);
+      padding: 24px 0;
+    }
+
+    .footer__copyright {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer__col-brand {
+        grid-column: 1;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        padding: 80px 24px 64px;
+      }
+
+      .section {
+        padding: 60px 24px;
+      }
+
+      .what-it-is__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .step {
+        gap: 16px;
+      }
+
+      .step__number {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .btn {
+        font-size: 18px;
+        padding: 18px 32px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn--outline {
+        width: auto;
+      }
+
+      .form-wrapper iframe {
+        height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container--wide">
+      <a href="https://coho.life" class="site-header__logo">
+        <img src="https://coho.life/wp-content/uploads/2024/07/logo-blue.png" alt="COHO" height="32">
+      </a>
+      <nav class="site-header__nav">
+        <a href="#apply">Apply to join →</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">Introducing</div>
+      <h1>COHO Circles</h1>
+      <p class="hero__sub">A private peer community for property professionals. Small groups. Real conversations. No noise.</p>
+      <a href="#apply" class="btn">Apply to join →</a>
+      <p class="hero__note">Available to active COHO users only. Places are limited. Join the waiting list today.</p>
+    </div>
+  </section>
+
+  <!-- What it is -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Built for real property professionals</h2>
+      <p>COHO Circles is a peer community for experienced and engaged property professionals.</p>
+      <p>Each Circle is a small, private WhatsApp group - 30 members maximum. No algorithm deciding what you see. No advertising. No lurkers. Just a tight group of people who are passionate about the industry.</p>
+
+      <div class="what-it-is__grid">
+        <div class="what-it-is__col col--for">
+          <h3>What it's for</h3>
+          <ul>
+            <li>Asking the questions AI doesn't have the experience to weigh in on</li>
+            <li>Sharing what's actually working - and what isn't</li>
+            <li>Getting a second opinion from someone who's been there</li>
+            <li>Honest conversation about the industry</li>
+          </ul>
+        </div>
+        <div class="what-it-is__col col--not">
+          <h3>What it isn't</h3>
+          <ul>
+            <li>An advertising channel</li>
+            <li>A place to lurk</li>
+            <li>Free advice on tap with nothing given back</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step__number">1</div>
+          <div class="step__content">
+            <h3>Apply</h3>
+            <p>Fill in the short form below. Takes two minutes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">2</div>
+          <div class="step__content">
+            <h3>Join the waiting list</h3>
+            <p>We don't add people to just any group. We wait until there's the right space in a group that suits you.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">3</div>
+          <div class="step__content">
+            <h3>Get invited</h3>
+            <p>When a spot opens, you'll receive a WhatsApp invite to your Circle.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">4</div>
+          <div class="step__content">
+            <h3>Contribute</h3>
+            <p>It takes each member to build and maintain a community. Those who don't engage will give up their spot to someone on the waiting list.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The rules -->
+  <section class="section section--alt rules">
+    <div class="container">
+      <h2>How we keep it worth being part of</h2>
+      <p>Communities only work when people contribute. Every member who joins takes a spot that someone on the waiting list is waiting for.</p>
+      <p>We ask one thing: show up. Share something. Respond when you can.</p>
+
+      <div class="rules__highlight">
+        <h3>The 30-day rule</h3>
+        <p>If a month passes with no activity from you, your spot returns to the waiting list automatically - no exceptions. You'll get a nudge a few days before if you've gone quiet, but after 30 days the spot is gone.</p>
+      </div>
+
+      <div class="rules__highlight">
+        <h3>No advertising</h3>
+        <p>This isn't a place to sell. It's a place to form a community with peers. Please don't use this as a channel to share your content, along with multiple other channels.</p>
+      </div>
+
+      <p>To rejoin, you go back to the bottom of the waiting list.</p>
+      <p>That rule exists to protect the quality of the group for everyone in it.</p>
+    </div>
+  </section>
+
+  <!-- Application form -->
+  <section id="apply" class="section apply">
+    <div class="container">
+      <h2>Apply to join</h2>
+      <p>Applications are open to active COHO users only. We'll review your application and be in touch when there's a suitable space.</p>
+      <div class="form-wrapper">
+        <iframe
+          src="https://cohoforms.wispform.com/b9b3f2ed"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+          title="COHO Circles Application Form">
+          Loading...
+        </iframe>
+      </div>
+      <p class="form-fallback">Having trouble with the form? <a href="https://cohoforms.wispform.com/b9b3f2ed" target="_blank" rel="noopener">Open it in a new tab →</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container--wide">
+      <div class="footer__grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer__col-brand">
+          <img src="https://coho.life/wp-content/uploads/2024/01/coho-xlarge.png" alt="COHO" class="footer__logo">
+          <p class="footer__tagline">Not just another property management system.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/cohosoftware" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/cohosoftware/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCgES4D8RBD8S2-2MzBBQF2A" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/cohosoftware" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://discord.gg/DyjXMt5YKv" target="_blank" rel="noopener" aria-label="Discord">
+              <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <a href="mailto:team@coho.life" aria-label="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="tel:03330388099" aria-label="Phone">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </a>
+          </div>
+          <p class="footer__cookie">We use cookies to run our site and understand how it's used. <a href="https://coho.life/legal/privacy-policy">Learn more.</a></p>
+        </div>
+
+        <!-- Column 2: Links -->
+        <div>
+          <div class="footer__nav-heading">Main</div>
+          <ul class="footer__nav">
+            <li><a href="https://coho.life/management/who-we-help/">Who we help</a></li>
+            <li><a href="https://coho.life/management/what-we-do/">What we do</a></li>
+            <li><a href="https://coho.life/management/pricing/">Pricing</a></li>
+          </ul>
+          <div class="footer__nav-heading">Resources</div>
+          <ul class="footer__nav">
+            <li><a href="https://coho.life/management/resources/">Resources</a></li>
+            <li><a href="https://coho.life/management/faqs/">Frequently asked questions</a></li>
+            <li><a href="https://coho.life/latest-news/">News &amp; updates</a></li>
+            <li><a href="https://coho.life/articles/">Longer reads</a></li>
+            <li><a href="https://coho.life/management/hmo-agents">HMO Agent Directory</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Legal & Contact -->
+        <div>
+          <div class="footer__nav-heading">Legal</div>
+          <ul class="footer__nav">
+            <li><a href="https://coho.life/legal/terms-and-conditions/">Terms and conditions</a></li>
+            <li><a href="https://coho.life/legal/subscription-terms/">Subscription terms</a></li>
+            <li><a href="https://coho.life/legal/privacy-policy/">Privacy policy</a></li>
+            <li><a href="https://coho.life/legal/terms-of-use/">Website terms of use</a></li>
+            <li><a href="https://coho.life/legal/acceptable-use-policy/">Acceptable use policy</a></li>
+          </ul>
+          <div class="footer__nav-heading">Contact</div>
+          <ul class="footer__nav">
+            <li><a href="https://coho.life/support/">Support</a></li>
+            <li><a href="https://coho.life/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Copyright bar -->
+    <div class="footer__bottom">
+      <div class="container--wide">
+        <p class="footer__copyright">&copy; 2020 - 2026 Company For Life Limited</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
